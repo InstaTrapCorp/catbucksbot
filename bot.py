@@ -1,6 +1,8 @@
 #Main Discord Bot funtion (CatBucks)
 
+import os
 import discord
+from dotenv import load_dotenv
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -12,5 +14,7 @@ class MyClient(discord.Client):
         if message.content.startswith('$hello'):
             await message.channel.send('Hello World!')
 
+load_dotenv()
+token = os.getenv("BOT_TOKEN")
 client = MyClient()
-client.run('TOKEN')
+client.run(token)
