@@ -1,3 +1,5 @@
+#Main Discord Bot funtion (CatBucks)
+
 import discord
 
 class MyClient(discord.Client):
@@ -7,5 +9,8 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         print('Message from {0.author}: {0.content}'.format(message))
 
+        if message.content.startswith('$hello'):
+            await message.channel.send('Hello World!')
+
 client = MyClient()
-client.run('ODM2NDE0MzAwODQyODg1MTYx.GRvJDm.G0L9PZcKI7qbfj4E6lp9xLediMVl5x6pr-rdBA')
+client.run('TOKEN')
